@@ -10,11 +10,11 @@ import {
     MapPin,
     Menu,
     X,
-    Star,
+ 
     ArrowRight,
 } from 'lucide-react';
 
-import starfalllogo from './assets/starfalllogo.png'
+
 import starfallgreenstars from './assets/starfallgreen.png'
 import djbentley from './assets/djbentleyv2.png'
 import bii from './assets/BII-new-thumb.png'
@@ -59,7 +59,7 @@ const App = () => {
     return (
 <div className="min-h-screen bg-black text-white flex flex-col min-w-0 mx-auto">
 
-      {/* Navigation */}
+
    <nav className="fixed top-0 w-full bg-slate-900 backdrop-blur-sm border-b border-slate-800 z-50">
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -118,7 +118,6 @@ const App = () => {
         </div>
       </nav>
 
-      {/* Hero Section */}
       <section id="home" className="pt-16 min-h-screen flex items-center">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="flex flex-col items-center text-center space-y-8">
@@ -206,7 +205,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* About Section */}
+
       <section id="about" className="py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row gap-12 items-center">
@@ -323,7 +322,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* Contact Section */}
+
       <section id="contact" className="py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center text-center mb-16">
@@ -408,7 +407,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* Footer */}
+  
       <footer className="border-t border-slate-800 py-12 bg-slate-900">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
