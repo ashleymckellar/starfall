@@ -274,6 +274,7 @@ const App = () => {
           </div>
 
           <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
+          
             {[
               {
                 title: "DJ Bentley Taylor",
@@ -298,7 +299,7 @@ const App = () => {
                 className="bg-slate-800 rounded-xl border border-slate-700 overflow-hidden hover:border-slate-600 transition-all hover:transform hover:scale-105 block group w-full md:w-80 lg:w-96 flex-shrink-0"
               >
                 <div className="h-48 bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center">
-                  <img className="w-full   h-full text-slate-400 group-hover:text-blue-400 transition-colors" src={project.image} />
+                   <Code className="w-20 h-20" />
                 </div>
                 <div className="p-6 flex flex-col">
                   <div className="text-sm text-blue-400 mb-2">{project.category}</div>
@@ -333,7 +334,7 @@ const App = () => {
                 </div>
                 <div>
                   <div className="font-semibold">Email Us</div>
-                  <div className="text-slate-400">hello@starfallcodeworks.com</div>
+                  <div className="text-slate-400">info@starfallcodeworks.com</div>
                 </div>
               </div>
 
