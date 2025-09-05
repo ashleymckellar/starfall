@@ -14,7 +14,7 @@ import {
     ArrowRight,
 } from 'lucide-react';
 
-
+import PricingComparison from './components/PricingComparison';
 import starfallgreenstars from './assets/starfallgreen.png'
 import djbentley from './assets/djbentleyv2.png'
 import bii from './assets/BII-new-thumb.png'
@@ -65,9 +65,7 @@ const App = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-black rounded-lg flex items-center justify-center p-1">
-                <img className="w-full h-full object-contain" src={starfallgreenstars} alt="Starfall Logo" />
-              </div>
+             
               <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 Starfall Codeworks
               </span>
@@ -161,17 +159,8 @@ const App = () => {
       {/* Services Section */}
       <section id="services" className="py-20 bg-slate-800/50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                Our Services
-              </span>
-            </h2>
-            <p className="text-xl text-slate-400 max-w-2xl">
-              Specialized web solutions designed to help local businesses thrive in the digital age
-            </p>
-          </div>
-
+        
+<PricingComparison />
           <div className="flex flex-wrap justify-center gap-8">
             {[
               {
@@ -412,9 +401,7 @@ const App = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-2 mb-4 md:mb-0">
-              <div className="w-12 h-12 bg-black rounded-lg flex items-center justify-center p-1">
-                <img className="w-full h-full object-contain" src={starfallgreenstars} alt="Starfall Logo" />
-              </div>
+            
               <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 Starfall Codeworks
               </span>
