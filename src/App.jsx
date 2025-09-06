@@ -15,7 +15,7 @@ import {
 } from 'lucide-react';
 
 import PricingComparison from './components/PricingComparison';
-import starfallgreenstars from './assets/starfallgreen.png'
+
 import djbentley from './assets/djbentleyv2.png'
 import bii from './assets/BII-new-thumb.png'
 
