@@ -1,4 +1,5 @@
 import  { useState, useEffect } from 'react';
+
 import {
     ChevronDown,
     Code,
@@ -15,6 +16,7 @@ import {
 } from 'lucide-react';
 
 import PricingComparison from './components/PricingComparison';
+import ContactForm from './components/ContactForm';
 
 import djbentley from './assets/djbentleyv2.png'
 import bii from './assets/BII-new-thumb.png'
@@ -195,69 +197,38 @@ const App = () => {
       </section>
 
 
-      <section id="about" className="py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row gap-12 items-center">
-            <div className="flex-1">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  Why Choose Starfall?
-                </span>
-              </h2>
-              <p className="text-lg text-slate-400 mb-8">
-                We're not just developers – we're your digital partners. With years of experience 
-                building modern web applications, we understand what local businesses need to succeed online.
-              </p>
-              
-              <div className="flex flex-col space-y-4">
-                {[
-                  "Modern React-based architecture",
-                  "Mobile-first responsive design",
-                  "SEO optimized for local search",
-                  "Fast loading times (< 2 seconds)",
-                  "Ongoing support and maintenance"
-                ].map((feature, index) => (
-                  <div key={index} className="flex items-center space-x-3">
-                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
-                    <span className="text-slate-300">{feature}</span>
-                  </div>
-                ))}
-              </div>
+<section id="about" className="py-20">
+  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="flex flex-col items-center">
+      <div className="max-w-3xl text-center lg:text-left">
+        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-center">
+          <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            Why Choose Starfall?
+          </span>
+        </h2>
+        <p className="text-lg text-slate-400 mb-8 text-center">
+          We're not just developers – we're your digital partners. With years of experience 
+          building modern web applications, we understand what local businesses need to succeed online.
+        </p>
+        
+        <div className="flex flex-col space-y-4">
+          {[
+            "Modern React-based architecture",
+            "Mobile-first responsive design",
+            "SEO optimized for local search",
+            "Fast loading times (< 2 seconds)",
+            "Ongoing support and maintenance"
+          ].map((feature, index) => (
+            <div key={index} className="flex items-center justify-center space-x-3">
+              <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+              <span className="text-slate-300">{feature}</span>
             </div>
-
-            <div className="flex-1 flex flex-col space-y-8 max-w-lg">
-              {[
-                {
-                  name: "DJ Bentley Taylor",
-                  company: "Music Producer",
-                  
-                  quote: "Starfall transformed my online presence completely. The site they built is lightning-fast and my booking inquiries have increased since launch."
-                },
-                {
-                  name: "Brain Integration Institute",
-                  company: "Healthcare Practice",
-                  quote: "Working with Starfall was seamless. They understood our needs perfectly and delivered a modern, accessible platform that our patients and practitioners love."
-                }
-              ].map((testimonial, index) => (
-                <div key={index} className="bg-slate-800 p-6 rounded-xl border border-slate-700">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">
-                      {testimonial.name.split(' ').map(n => n[0]).join('')}
-                    </div>
-                    <div className="flex-1">
-                      <p className="text-slate-300 mb-3 italic">"{testimonial.quote}"</p>
-                      <div>
-                        <div className="font-semibold text-white">{testimonial.name}</div>
-                        <div className="text-sm text-slate-400">{testimonial.company}</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          ))}
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Portfolio Section */}
       <section id="portfolio" className="py-20 bg-slate-800/50">
@@ -315,8 +286,11 @@ const App = () => {
 
       <section id="contact" className="py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center text-center mb-16">
+               <ContactForm />
+          {/* <div className="flex flex-col items-center text-center mb-16">
+           
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          
               <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 Let's Build Something Amazing
               </span>
@@ -324,8 +298,8 @@ const App = () => {
             <p className="text-xl text-slate-400 max-w-2xl">
               Ready to transform your business with a modern web application? Get in touch today.
             </p>
-          </div>
-
+          </div> */}
+{/* 
           <div className="flex flex-col lg:flex-row gap-12">
             <div className="flex-1 flex flex-col space-y-8">
               <div className="flex items-center space-x-4">
@@ -393,7 +367,7 @@ const App = () => {
                 </button>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
 
