@@ -20,6 +20,7 @@ import ContactForm from './components/ContactForm';
 
 import djbentley from './assets/djbentleyv2.png'
 import bii from './assets/BII-new-thumb.png'
+import purplestar from './assets/purplestar.png'
 
 const App = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -67,7 +68,7 @@ const App = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-3">
-             
+             <img src={purplestar} className='w-15 h-15'/>
               <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 Starfall Codeworks
               </span>
@@ -376,7 +377,7 @@ const App = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-2 mb-4 md:mb-0">
-            
+              <img src={purplestar} className='w-15 h-15'/>
               <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 Starfall Codeworks
               </span>
