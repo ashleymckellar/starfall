@@ -57,7 +57,7 @@ const FormModal = (props) => {
                 </h2>
                 
                 <p className="text-lg text-center mb-8 text-gray-300 leading-relaxed">
-                    Your request has been sent successfully! I'll get back to you as soon as possible. Thanks for reaching out!
+                    I'll get back to you as soon as possible. Thanks for reaching out!
                 </p>
                 
                 <div className="flex justify-center">
