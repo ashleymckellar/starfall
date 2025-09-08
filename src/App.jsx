@@ -1,4 +1,4 @@
-import  { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 import {
     ChevronDown,
@@ -11,7 +11,6 @@ import {
     MapPin,
     Menu,
     X,
- 
     ArrowRight,
 } from 'lucide-react';
 
@@ -19,9 +18,9 @@ import PricingComparison from './components/PricingComparison';
 import ContactForm from './components/ContactForm';
 import Calendar from './components/Calendar';
 
-import djbentley from './assets/djbentleyv2.png'
-import bii from './assets/BII-new-thumb.png'
-import purplestar from './assets/purplestar.png'
+import djbentley from './assets/djbentleyv2.png';
+import bii from './assets/BII-new-thumb.png';
+import purplestar from './assets/purplestar.png';
 
 const App = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -61,237 +60,277 @@ const App = () => {
     };
 
     return (
-<div className="min-h-screen bg-black text-white flex flex-col min-w-0 mx-auto">
+        <div className="min-h-screen bg-black text-white flex flex-col min-w-0 mx-auto">
+            <nav className="fixed top-0 w-full bg-slate-900 backdrop-blur-sm border-b border-slate-800 z-50">
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="flex justify-between items-center h-16">
+                        <div className="flex items-center space-x-3">
+                            <img src={purplestar} className="w-15 h-15" />
+                            <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                                Starfall Codeworks
+                            </span>
+                        </div>
 
+                        {/* Desktop Menu */}
+                        <div className="hidden md:flex space-x-8">
+                            {[
+                                'Home',
+                                'Services',
+                                'About',
+                                'Portfolio',
+                                'Contact',
+                            ].map((item) => (
+                                <button
+                                    key={item}
+                                    onClick={() => scrollTo(item.toLowerCase())}
+                                    className={`text-sm font-medium transition-colors ${
+                                        activeSection === item.toLowerCase()
+                                            ? 'text-blue-400'
+                                            : 'text-slate-300 hover:text-white'
+                                    }`}
+                                >
+                                    {item}
+                                </button>
+                            ))}
+                        </div>
 
-   <nav className="fixed top-0 w-full bg-slate-900 backdrop-blur-sm border-b border-slate-800 z-50">
+                        {/* Mobile Menu Button */}
+                        <button
+                            className="md:hidden"
+                            onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        >
+                            {isMenuOpen ? (
+                                <X className="w-6 h-6" />
+                            ) : (
+                                <Menu className="w-6 h-6" />
+                            )}
+                        </button>
+                    </div>
 
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-3">
-             <img src={purplestar} className='w-15 h-15'/>
-              <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                Starfall Codeworks
-              </span>
-            </div>
-
-            {/* Desktop Menu */}
-            <div className="hidden md:flex space-x-8">
-              {['Home', 'Services', 'About', 'Portfolio', 'Contact'].map((item) => (
-                <button
-                  key={item}
-                  onClick={() => scrollTo(item.toLowerCase())}
-                  className={`text-sm font-medium transition-colors ${
-                    activeSection === item.toLowerCase()
-                      ? 'text-blue-400'
-                      : 'text-slate-300 hover:text-white'
-                  }`}
-                >
-                  {item}
-                </button>
-              ))}
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              className="md:hidden"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
-
-          {/* Mobile Menu */}
-          {isMenuOpen && (
-            <div className="md:hidden border-t border-slate-800">
-              <div className="py-4 flex flex-col space-y-2">
-                {['Home', 'Services', 'About', 'Portfolio', 'Contact'].map((item) => (
-                  <button
-                    key={item}
-                    onClick={() => scrollTo(item.toLowerCase())}
-                    className="text-left px-4 py-2 text-sm font-medium text-slate-300 hover:text-white transition-colors"
-                  >
-                    {item}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-      </nav>
-
-      <section id="home" className="pt-16 min-h-screen flex items-center">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="flex flex-col items-center text-center space-y-8">
-            <div className="flex flex-col space-y-4">
-              <h1 className="text-5xl md:text-7xl font-bold">
-                <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
-                  Modern Web Apps
-                </span>
-                <br />
-                <span className="text-slate-200">for Local Businesses</span>
-              </h1>
-              <p className="text-xl md:text-2xl text-slate-400 max-w-3xl">
-                We craft lightning-fast Single Page Applications that help local businesses 
-                stand out online and convert visitors into customers.
-              </p>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                onClick={() => scrollTo('contact')}
-                className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 px-8 py-4 rounded-lg font-semibold transition-all transform hover:scale-105 flex items-center justify-center space-x-2"
-              >
-                <span>Get Started</span>
-                <ArrowRight className="w-5 h-5" />
-              </button>
-              <button
-                onClick={() => scrollTo('portfolio')}
-                className="border border-slate-600 hover:border-slate-500 px-8 py-4 rounded-lg font-semibold transition-all hover:bg-slate-800"
-              >
-                View Our Work
-              </button>
-            </div>
-
-            <div className="animate-bounce mt-16">
-              <ChevronDown className="w-8 h-8 text-slate-500" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section id="services" className="py-20 bg-slate-800/50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-<PricingComparison />
-          <div className="flex flex-wrap justify-center gap-8">
-            {[
-              {
-                icon: <Code className="w-8 h-8" />,
-                title: "Single Page Applications",
-                description: "Fast, responsive SPAs built with React that provide seamless user experiences and instant page loads."
-              },
-              {
-                icon: <Zap className="w-8 h-8" />,
-                title: "Full Stack Web and Mobile Apps",
-                description: "Custom-built applications that work seamlessly across web and mobile."
-              },
-              {
-                icon: <Users className="w-8 h-8" />,
-                title: "Local Business Focus",
-                description: "Tailored solutions for restaurants, shops, services, and other local businesses with location-based features."
-              }
-            ].map((service, index) => (
-              <div
-                key={index}
-                className="bg-slate-800 p-8 rounded-xl border border-slate-700 hover:border-slate-600 transition-all hover:transform hover:scale-105 w-full md:w-80 lg:w-96 flex-shrink-0"
-              >
-                <div className="flex flex-col items-start">
-                  <div className="text-blue-400 mb-4">{service.icon}</div>
-                  <h3 className="text-xl font-semibold mb-4">{service.title}</h3>
-                  <p className="text-slate-400">{service.description}</p>
+                    {/* Mobile Menu */}
+                    {isMenuOpen && (
+                        <div className="md:hidden border-t border-slate-800">
+                            <div className="py-4 flex flex-col space-y-2">
+                                {[
+                                    'Home',
+                                    'Services',
+                                    'About',
+                                    'Portfolio',
+                                    'Contact',
+                                ].map((item) => (
+                                    <button
+                                        key={item}
+                                        onClick={() =>
+                                            scrollTo(item.toLowerCase())
+                                        }
+                                        className="text-left px-4 py-2 text-sm font-medium text-slate-300 hover:text-white transition-colors"
+                                    >
+                                        {item}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                    )}
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            </nav>
 
+            <section id="home" className="pt-16 min-h-screen flex items-center">
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                    <div className="flex flex-col items-center text-center space-y-8">
+                        <div className="flex flex-col space-y-4">
+                            <h1 className="text-5xl md:text-7xl font-bold">
+                                <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                                    Modern Web Apps
+                                </span>
+                                <br />
+                                <span className="text-slate-200">
+                                    for Local Businesses
+                                </span>
+                            </h1>
+                            <p className="text-xl md:text-2xl text-slate-400 max-w-3xl">
+                                We craft lightning-fast Single Page Applications
+                                that help local businesses stand out online and
+                                convert visitors into customers.
+                            </p>
+                        </div>
 
-<section id="about" className="py-20">
-  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="flex flex-col items-center">
-      <div className="max-w-3xl text-center lg:text-left">
-        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-center">
-          <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-            Why Choose Starfall?
-          </span>
-        </h2>
-        <p className="text-lg text-slate-400 mb-8 text-center">
-          We're not just developers – we're your digital partners. With years of experience 
-          building modern web applications, we understand what local businesses need to succeed online.
-        </p>
-        
-        <div className="flex flex-col space-y-4">
-          {[
-            "Modern React-based architecture",
-            "Mobile-first responsive design",
-            "SEO optimized for local search",
-            "Fast loading times (< 2 seconds)",
-            "Ongoing support and maintenance"
-          ].map((feature, index) => (
-            <div key={index} className="flex items-center justify-center space-x-3">
-              <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
-              <span className="text-slate-300">{feature}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <button
+                                onClick={() => scrollTo('contact')}
+                                className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 px-8 py-4 rounded-lg font-semibold transition-all transform hover:scale-105 flex items-center justify-center space-x-2"
+                            >
+                                <span>Get Started</span>
+                                <ArrowRight className="w-5 h-5" />
+                            </button>
+                            <button
+                                onClick={() => scrollTo('portfolio')}
+                                className="border border-slate-600 hover:border-slate-500 px-8 py-4 rounded-lg font-semibold transition-all hover:bg-slate-800"
+                            >
+                                View Our Work
+                            </button>
+                        </div>
 
-      {/* Portfolio Section */}
-      <section id="portfolio" className="py-20 bg-slate-800/50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                Our Work
-              </span>
-            </h2>
-            <p className="text-xl text-slate-400 max-w-2xl">
-              See how we've helped local businesses transform their online presence
-            </p>
-          </div>
-
-          <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
-          
-            {[
-              {
-                title: "DJ Bentley Taylor",
-                category: "Entertainment Industry",
-                image: djbentley,
-                description: "Single page React website with contact form and third party API integration.",
-                link: "https://www.djbentleytaylor.com/"
-              },
-              {
-                title: "Brain Integration Institute",
-                category: "Healthcare",
-                image: bii,
-                description: "Full stack application with authentication, admin portal, Stripe powered payments, and a custom timed assessment.",
-                link: "https://brainintegration.institute"
-              }
-            ].map((project, index) => (
-              <a
-                key={index}
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-slate-800 rounded-xl border border-slate-700 overflow-hidden hover:border-slate-600 transition-all hover:transform hover:scale-105 block group w-full md:w-80 lg:w-96 flex-shrink-0"
-              >
-                <div className="h-48 bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center">
-                   <Code className="w-20 h-20" />
+                        <div className="animate-bounce mt-16 cursor-pointer">
+                            <ChevronDown
+                                className="w-8 h-8 text-slate-500"
+                                onClick={() => scrollTo('services')}
+                            />
+                        </div>
+                    </div>
                 </div>
-                <div className="p-6 flex flex-col">
-                  <div className="text-sm text-blue-400 mb-2">{project.category}</div>
-                  <h3 className="text-xl font-semibold mb-2 group-hover:text-blue-400 transition-colors">{project.title}</h3>
-                  <p className="text-slate-400 flex-1">{project.description}</p>
+            </section>
+
+            {/* Services Section */}
+            <section id="services" className="py-20 bg-slate-800/50">
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <PricingComparison />
+                    <div className="flex flex-wrap justify-center gap-8">
+                        {[
+                            {
+                                icon: <Code className="w-8 h-8" />,
+                                title: 'Single Page Applications',
+                                description:
+                                    'Fast, responsive SPAs built with React that provide seamless user experiences and instant page loads.',
+                            },
+                            {
+                                icon: <Zap className="w-8 h-8" />,
+                                title: 'Full Stack Web and Mobile Apps',
+                                description:
+                                    'Custom-built applications that work seamlessly across web and mobile.',
+                            },
+                            {
+                                icon: <Users className="w-8 h-8" />,
+                                title: 'Local Business Focus',
+                                description:
+                                    'Tailored solutions for restaurants, shops, services, and other local businesses with location-based features.',
+                            },
+                        ].map((service, index) => (
+                            <div
+                                key={index}
+                                className="bg-slate-800 p-8 rounded-xl border border-slate-700 hover:border-slate-600 transition-all hover:transform hover:scale-105 w-full md:w-80 lg:w-96 flex-shrink-0"
+                            >
+                                <div className="flex flex-col items-start">
+                                    <div className="text-blue-400 mb-4">
+                                        {service.icon}
+                                    </div>
+                                    <h3 className="text-xl font-semibold mb-4">
+                                        {service.title}
+                                    </h3>
+                                    <p className="text-slate-400">
+                                        {service.description}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
+            </section>
 
+            <section id="about" className="py-20">
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="flex flex-col items-center">
+                        <div className="max-w-3xl text-center lg:text-left">
+                            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-center">
+                                <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                                    Why Choose Starfall?
+                                </span>
+                            </h2>
+                            <p className="text-lg text-slate-400 mb-8 text-center">
+                                We're not just developers – we're your digital
+                                partners. With years of experience building
+                                modern web applications, we understand what
+                                local businesses need to succeed online.
+                            </p>
 
-      <section id="contact" className="py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-  
+                            <div className="flex flex-col space-y-4">
+                                {[
+                                    'Modern React-based architecture',
+                                    'Mobile-first responsive design',
+                                    'SEO optimized for local search',
+                                    'Fast loading times (< 2 seconds)',
+                                    'Ongoing support and maintenance',
+                                ].map((feature, index) => (
+                                    <div
+                                        key={index}
+                                        className="flex items-center justify-center space-x-3"
+                                    >
+                                        <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                                        <span className="text-slate-300">
+                                            {feature}
+                                        </span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-               <ContactForm />
-          {/* <div className="flex flex-col items-center text-center mb-16">
+            {/* Portfolio Section */}
+            <section id="portfolio" className="py-20 bg-slate-800/50">
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="flex flex-col items-center text-center mb-16">
+                        <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                                Our Work
+                            </span>
+                        </h2>
+                        <p className="text-xl text-slate-400 max-w-2xl">
+                            See how we've helped local businesses transform
+                            their online presence
+                        </p>
+                    </div>
+
+                    <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
+                        {[
+                            {
+                                title: 'DJ Bentley Taylor',
+                                category: 'Entertainment Industry',
+                                image: djbentley,
+                                description:
+                                    'Single page React website with contact form and third party API integration.',
+                                link: 'https://www.djbentleytaylor.com/',
+                            },
+                            {
+                                title: 'Brain Integration Institute',
+                                category: 'Healthcare',
+                                image: bii,
+                                description:
+                                    'Full stack application with authentication, admin portal, Stripe powered payments, and a custom timed assessment.',
+                                link: 'https://brainintegration.institute',
+                            },
+                        ].map((project, index) => (
+                            <a
+                                key={index}
+                                href={project.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="bg-slate-800 rounded-xl border border-slate-700 overflow-hidden hover:border-slate-600 transition-all hover:transform hover:scale-105 block group w-full md:w-80 lg:w-96 flex-shrink-0"
+                            >
+                                <div className="h-48 bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center">
+                                    <Code className="w-20 h-20" />
+                                </div>
+                                <div className="p-6 flex flex-col">
+                                    <div className="text-sm text-blue-400 mb-2">
+                                        {project.category}
+                                    </div>
+                                    <h3 className="text-xl font-semibold mb-2 group-hover:text-blue-400 transition-colors">
+                                        {project.title}
+                                    </h3>
+                                    <p className="text-slate-400 flex-1">
+                                        {project.description}
+                                    </p>
+                                </div>
+                            </a>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" className="py-20">
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <ContactForm />
+                    {/* <div className="flex flex-col items-center text-center mb-16">
            
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
           
@@ -303,7 +342,7 @@ const App = () => {
               Ready to transform your business with a modern web application? Get in touch today.
             </p>
           </div> */}
-{/* 
+                    {/* 
           <div className="flex flex-col lg:flex-row gap-12">
             <div className="flex-1 flex flex-col space-y-8">
               <div className="flex items-center space-x-4">
@@ -372,27 +411,26 @@ const App = () => {
               </div>
             </div>
           </div> */}
-        </div>
-      </section>
+                </div>
+            </section>
 
-  
-      <footer className="border-t border-slate-800 py-12 bg-slate-900">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center space-x-2 mb-4 md:mb-0">
-              <img src={purplestar} className='w-15 h-15'/>
-              <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                Starfall Codeworks
-              </span>
-            </div>
-            <div className="text-slate-400 text-sm">
-              © 2025 Starfall Codeworks. All rights reserved.
-            </div>
-          </div>
+            <footer className="border-t border-slate-800 py-12 bg-slate-900">
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="flex flex-col md:flex-row justify-between items-center">
+                        <div className="flex items-center space-x-2 mb-4 md:mb-0">
+                            <img src={purplestar} className="w-15 h-15" />
+                            <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                                Starfall Codeworks
+                            </span>
+                        </div>
+                        <div className="text-slate-400 text-sm">
+                            © 2025 Starfall Codeworks. All rights reserved.
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </div>
-      </footer>
-    </div>
-  );
+    );
 };
 
 export default App;
