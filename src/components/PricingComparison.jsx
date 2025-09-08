@@ -235,24 +235,41 @@ const PricingComparison = () => {
                 </div>
 
                 {/* Bottom CTA */}
-              <div className="text-center bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-2xl p-8 border border-slate-700">
-  <h3 className="text-2xl font-bold mb-4">Ready to Get Started?</h3>
-  <p className="text-slate-400 mb-6 max-w-2xl mx-auto">
-    Not sure which plan is right for you? Let's chat about your project and 
-    find the perfect solution for your business needs.
-  </p>
+                <div className="text-center bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-2xl p-8 border border-slate-700">
+                    <h3 className="text-2xl font-bold mb-4">
+                        Ready to Get Started?
+                    </h3>
+                    <p className="text-slate-400 mb-6 max-w-2xl mx-auto">
+                        Not sure which plan is right for you? Let's chat about
+                        your project and find the perfect solution for your
+                        business needs.
+                    </p>
                     <div className="flex flex-col items-center gap-4">
-                        <button
-                            className="bg-gradient-to-r from-blue-500 to-purple-600 
+                        {!isClicked ? (
+                            <button
+                                className="bg-gradient-to-r from-blue-500 to-purple-600 
              hover:from-blue-600 hover:to-purple-700
              px-6 py-3 sm:px-8 sm:py-4 
              rounded-lg font-semibold 
              text-sm sm:text-base md:text-lg
              transition-all transform hover:scale-105"
-                            onClick={() => setIsClicked((v) => !v)}
-                        >
-                            Schedule a Consultation
-                        </button>
+                                onClick={() => setIsClicked((v) => !v)}
+                            >
+                                Schedule a Consultation
+                            </button>
+                        ) : (
+                            <button
+                                className="bg-gradient-to-r from-blue-500 to-purple-600 
+             hover:from-blue-600 hover:to-purple-700
+             px-6 py-3 sm:px-8 sm:py-4 
+             rounded-lg font-semibold 
+             text-sm sm:text-base md:text-lg
+             transition-all transform hover:scale-105"
+                                onClick={() => setIsClicked((v) => !v)}
+                            >
+                                Hide Calendar
+                            </button>
+                        )}
 
                         {isClicked && (
                             <div className="w-full max-w-3xl mx-auto">
