@@ -17,6 +17,7 @@ import {
 
 import PricingComparison from './components/PricingComparison';
 import ContactForm from './components/ContactForm';
+import Calendar from './components/Calendar';
 
 import djbentley from './assets/djbentleyv2.png'
 import bii from './assets/BII-new-thumb.png'
@@ -287,6 +288,8 @@ const App = () => {
 
       <section id="contact" className="py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+  
+
                <ContactForm />
           {/* <div className="flex flex-col items-center text-center mb-16">
            
