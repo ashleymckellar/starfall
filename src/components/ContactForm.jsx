@@ -26,7 +26,7 @@ const ContactForm = () => {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [requiredFieldError, setRequiredFieldError] = useState('');
     const [showModal, setShowModal] = useState(false);
-        console.log(showModal, 'show modal')
+        // console.log(showModal, 'show modal')
     const [focused, setFocused] = useState(null);
 
     const isDisabled = !(inputs.name && inputs.email && inputs.message);
@@ -71,7 +71,7 @@ const ContactForm = () => {
     const handleCloseModal = () => {
         setShowModal(false);
     };
-    console.log(isDisabled, 'is disabled?');
+    // console.log(isDisabled, 'is disabled?');
     const sendEmail = (e) => {
         e.preventDefault();
 
@@ -94,8 +94,8 @@ const ContactForm = () => {
                 import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
             )
             .then(
-                (result) => {
-                    console.log(result.text);
+                () => {
+                    // console.log(result.text);
                     setIsSubmitted(true);
                     handleOpenModal();
                     setInputs({
@@ -105,8 +105,8 @@ const ContactForm = () => {
                         message: '',
                     });
                 },
-                (error) => {
-                    console.log(error.text);
+                () => {
+                    // console.log(error.text);
                     setRequiredFieldError(
                         'Failed to send message. Please try again.',
                     );
@@ -114,7 +114,7 @@ const ContactForm = () => {
             );
     };
 
-    console.log(requiredFieldError, 'rquired field error');
+    // console.log(requiredFieldError, 'rquired field error');
 
     const handleBlur = (e) => {
         const { name, value } = e.target;

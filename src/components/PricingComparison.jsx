@@ -234,7 +234,7 @@ const PricingComparison = () => {
                     </div>
                 </div>
 
-                {/* Bottom CTA */}
+   
                 <div className="text-center bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-2xl p-8 border border-slate-700">
                     <h3 className="text-2xl font-bold mb-4">
                         Ready to Get Started?
@@ -271,19 +271,13 @@ const PricingComparison = () => {
                             </button>
                         )}
 
-                        {isClicked && (
-                            <div className="w-full max-w-3xl mx-auto">
-                                <Calendar
-                                    style={{
-                                        width: '100%',
-                                        height:
-                                            window.innerWidth < 640
-                                                ? '500px'
-                                                : '700px',
-                                    }}
-                                />
-                            </div>
-                        )}
+{isClicked && (
+  <div className="w-full max-w-3xl mx-auto px-0 sm:px-4">
+    <Calendar />
+  </div>
+)}
+
+
                     </div>
                 </div>
             </div>
